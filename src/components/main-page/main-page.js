@@ -1,6 +1,8 @@
 import React from 'react';
 
+import {offers} from '../../mocks/offers';
 import {OffersList} from '../offers-list/offers-list';
+import {Map} from '../map/map';
 
 export const MainPage = () => (
   <main className="page__main page__main--index">
@@ -70,11 +72,11 @@ export const MainPage = () => (
              */}
           </form>
 
-          <OffersList />
-          <div className="cities__right-section">
-            <section className="cities__map map"></section>
-          </div>
+          <OffersList offers={offers} />
         </section>
+        <div className="cities__right-section">
+          <Map offers={offers} />
+        </div>
       </div>
     </div>
   </main>
