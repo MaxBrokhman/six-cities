@@ -5,6 +5,7 @@ import {offers} from '../mocks/offers';
 export const initialState = {
   currentCity: offers[0].city,
   offersList: offers,
+  sort: `popular`,
 };
 
 const initialContext = {
@@ -21,6 +22,10 @@ export const reducer = (state = initialState, action) => {
     case `SET_CITY`:
       return Object.assign({}, state, {
         currentCity: action.payload,
+      });
+    case `SET_SORT`:
+      return Object.assign({}, state, {
+        sort: action.payload,
       });
     default:
       return state;

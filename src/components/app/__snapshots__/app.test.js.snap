@@ -150,9 +150,10 @@ exports[`Renders App component correctly 1`] = `
             </span>
             <span
               className="places__sorting-type"
+              onClick={[Function]}
               tabIndex="0"
             >
-              Popular
+              popular
               <svg
                 className="places__sorting-arrow"
                 height="4"
@@ -164,31 +165,35 @@ exports[`Renders App component correctly 1`] = `
               </svg>
             </span>
             <ul
-              className="places__options places__options--custom places__options--opened"
+              className="places__options places__options--custom places__options--closed"
             >
               <li
                 className="places__option places__option--active"
+                onClick={[Function]}
                 tabIndex="0"
               >
-                Popular
+                popular
               </li>
               <li
-                className="places__option"
+                className="places__option "
+                onClick={[Function]}
                 tabIndex="0"
               >
-                Price: low to high
+                price: low to high
               </li>
               <li
-                className="places__option"
+                className="places__option "
+                onClick={[Function]}
                 tabIndex="0"
               >
-                Price: high to low
+                price: high to low
               </li>
               <li
-                className="places__option"
+                className="places__option "
+                onClick={[Function]}
                 tabIndex="0"
               >
-                Top rated first
+                top rated first
               </li>
             </ul>
           </form>

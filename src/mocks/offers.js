@@ -6,6 +6,7 @@ export const offers = [
     description: `Beautiful &amp; luxurious apartment at great location`,
     coords: [52.3909553943508, 4.85309666406198],
     city: `amsterdam`,
+    rating: 5,
   },
   {
     src: `room.jpg`,
@@ -14,6 +15,7 @@ export const offers = [
     description: `Wood and stone place`,
     coords: [52.369553943508, 4.85309666406198],
     city: `berlin`,
+    rating: 4,
   },
   {
     src: `apartment-02.jpg`,
@@ -22,6 +24,7 @@ export const offers = [
     description: `Canal View Prinsengracht`,
     coords: [52.3909553943508, 4.929309666406198],
     city: `paris`,
+    rating: 5,
   },
   {
     src: `apartment-03.jpg`,
@@ -30,5 +33,6 @@ export const offers = [
     description: `Nice, cozy, warm big bed apartment`,
     coords: [52.3809553943508, 4.939309666406198],
     city: `amsterdam`,
+    rating: 3,
   }
 ];
