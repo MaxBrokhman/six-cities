@@ -8,12 +8,13 @@ export const OffersList = ({offers}) => {
   return (
     <div className="cities__places-list places__list tabs__content">
       {// eslint-disable-next-line
-        offers.map((offer, i) => <OfferCard
-          offer={offer}
-          key={i}
-          hoverHandler={hoverHandler}
-          activeCard={activeCard}
-        />)
+        offers.map((offer, i) => 
+          <OfferCard
+            offer={offer}
+            key={i}
+            hoverHandler={hoverHandler}
+            activeCard={activeCard}
+          />)
       }
     </div>
   );
