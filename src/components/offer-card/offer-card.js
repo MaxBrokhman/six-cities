@@ -1,7 +1,11 @@
 import React from 'react';
 // eslint-disable-next-line
-export const OfferCard = ({offer, hoverHandler}) => (
-  <article className="cities__place-card place-card" onMouseOver={hoverHandler(offer)}>
+export const OfferCard = ({offer, hoverHandler, leaveHandler}) => (
+  <article
+    className="cities__place-card place-card"
+    onMouseOver={hoverHandler(offer)}
+    onMouseLeave={leaveHandler}
+  >
     {/* <div className="place-card__mark">
       <span>Premium</span>
     </div> */}

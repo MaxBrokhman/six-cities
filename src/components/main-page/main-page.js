@@ -5,7 +5,7 @@ import {Map} from '../map/map';
 import {CitiesList} from '../cities-list/cities-list';
 import {SortingVariants} from '../sorting-variants/sorting-variants';
 import {useAppContext} from '../../reducer/reducer';
-import {useFilteredOffers} from './hooks';
+import {useFilteredOffers, useActiveCard} from './hooks';
 
 export const MainPage = () => {
   const {state} = useAppContext();
@@ -14,6 +14,11 @@ export const MainPage = () => {
     city: state.currentCity,
     sort: state.sort,
   });
+  const {
+    activeCard,
+    hoverHandler,
+    leaveHandler,
+  } = useActiveCard();
   return (
     <main className="page__main page__main--index">
       <h1 className="visually-hidden">Cities</h1>
@@ -29,10 +34,14 @@ export const MainPage = () => {
             <b className="places__found">{filteredOffers.length} places to stay in <span>{state.currentCity}</span></b>
             <SortingVariants />
 
-            <OffersList offers={filteredOffers} />
+            <OffersList
+              offers={filteredOffers}
+              hoverHandler={hoverHandler}
+              leaveHandler={leaveHandler}
+            />
           </section>
           <div className="cities__right-section">
-            <Map offers={filteredOffers} />
+            <Map offers={filteredOffers} activeCard={activeCard} />
           </div>
         </div>
       </div>

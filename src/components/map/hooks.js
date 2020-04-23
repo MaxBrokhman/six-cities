@@ -2,16 +2,13 @@ import {useEffect} from 'react';
 import leaflet from 'leaflet';
 
 const CITY = [52.38333, 4.9];
-const icon = leaflet.icon({
-  iconUrl: `img/pin.svg`,
-  iconSize: [30, 30]
-});
+
 const ZOOM = 12;
 
 let map;
 const markers = leaflet.layerGroup();
 
-export const useMap = (offers) => {
+export const useMap = (offers, activeCard) => {
   useEffect(() => {
     map = leaflet.map(`map`, {
       center: CITY,
@@ -29,10 +26,17 @@ export const useMap = (offers) => {
   useEffect(() => {
     if (map) {
       markers.clearLayers();
-      offers.forEach(({coords}) => {
+      offers.forEach(({coords, src}) => {
+        const iconUrl = activeCard && src === activeCard.src
+          ? `img/pin-active.svg`
+          : `img/pin.svg`;
+        const icon = leaflet.icon({
+          iconUrl,
+          iconSize: [30, 30]
+        });
         markers.addLayer(leaflet.marker(coords, {icon}));
       });
       markers.addTo(map);
     }
-  }, [offers]);
+  }, [offers, activeCard]);
 };
