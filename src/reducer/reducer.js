@@ -3,7 +3,9 @@ import {useContext, createContext} from 'react';
 import {offers} from '../mocks/offers';
 
 export const initialState = {
-  currentCity: offers[0].city,
+  currentCity: offers.length
+    ? offers[0].city
+    : ``,
   offersList: offers,
   sort: `popular`,
 };
