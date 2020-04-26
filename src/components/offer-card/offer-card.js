@@ -6,13 +6,23 @@ export const OfferCard = ({offer, hoverHandler, leaveHandler}) => (
     onMouseOver={hoverHandler(offer)}
     onMouseLeave={leaveHandler}
   >
-    {/* <div className="place-card__mark">
-      <span>Premium</span>
-    </div> */}
+    {// eslint-disable-next-line
+      offer.is_premium && (
+        <div className="place-card__mark">
+          <span>Premium</span>
+        </div>
+      )
+    }
     <div className="cities__image-wrapper place-card__image-wrapper">
       <a href="#">
-        {// eslint-disable-next-line
-        <img className="place-card__image" src={`img/${offer.src}`} width="260" height="200" alt="Place image" />}
+        <img
+          className="place-card__image"
+          // eslint-disable-next-line
+          src={offer.preview_image} 
+          width="260"
+          height="200"
+          alt="Place image"
+        />
       </a>
     </div>
     <div className="place-card__info">

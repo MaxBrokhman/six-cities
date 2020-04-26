@@ -3,7 +3,7 @@ import {useState} from 'react';
 import {sortOptions} from '../../config';
 
 export const useFilteredOffers = ({offers, city, sort}) => {
-  const filteredOffers = offers.filter((offer) => offer.city === city);
+  const filteredOffers = offers.filter((offer) => offer.city.name === city);
   const sortedOffers = sort === `popular`
     ? filteredOffers
     : filteredOffers.sort(sortOptions[sort]);

@@ -1,38 +1,70 @@
 export const offers = [
   {
-    src: `apartment-01.jpg`,
+    src: `img/apartment-01.jpg`,
     price: 120,
     type: `Apartment`,
     description: `Beautiful &amp; luxurious apartment at great location`,
-    coords: [52.3909553943508, 4.85309666406198],
-    city: `amsterdam`,
+    city: {
+      location: {
+        latitude: 52.3909553943508,
+        longitude: 4.85309666406198,
+      },
+      name: `amsterdam`,
+      zoom: 6,
+    },
+    location: {
+      latitude: 52.3909553943508,
+      longitude: 4.85309666406198,
+    },
     rating: 5,
   },
   {
-    src: `room.jpg`,
+    src: `img/room.jpg`,
     price: 80,
     type: `Private room`,
     description: `Wood and stone place`,
-    coords: [52.369553943508, 4.85309666406198],
-    city: `berlin`,
+    city: {
+      location: {
+        latitude: 52.369553943508,
+        longitude: 4.85309666406198,
+      },
+      name: `berlin`,
+      zoom: 6,
+    },
     rating: 4,
   },
   {
-    src: `apartment-02.jpg`,
+    src: `img/apartment-02.jpg`,
     price: 132,
     type: `Apartment`,
     description: `Canal View Prinsengracht`,
-    coords: [52.3909553943508, 4.929309666406198],
-    city: `paris`,
+    city: {
+      location: {
+        latitude: 52.369553943508,
+        longitude: 4.85309666406198,
+      },
+      name: `paris`,
+      zoom: 6,
+    },
     rating: 5,
   },
   {
-    src: `apartment-03.jpg`,
+    src: `img/apartment-03.jpg`,
     price: 180,
     type: `Apartment`,
     description: `Nice, cozy, warm big bed apartment`,
-    coords: [52.3809553943508, 4.939309666406198],
-    city: `amsterdam`,
+    location: {
+      latitude: 52.369553943508,
+      longitude: 4.85309666406198,
+    },
+    city: {
+      location: {
+        latitude: 52.369553943508,
+        longitude: 4.85309666406198,
+      },
+      name: `amsterdam`,
+      zoom: 6,
+    },
     rating: 3,
   }
 ];

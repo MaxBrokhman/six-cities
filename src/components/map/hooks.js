@@ -1,22 +1,22 @@
 import {useEffect} from 'react';
 import leaflet from 'leaflet';
 
-const CITY = [52.38333, 4.9];
-
-const ZOOM = 12;
-
 let map;
 const markers = leaflet.layerGroup();
 
 export const useMap = (offers, activeCard) => {
+  const cityLocation = [
+    offers[0].city.location.latitude,
+    offers[0].city.location.longitude,
+  ];
+  const cityZoom = offers[0].city.location.zoom;
   useEffect(() => {
     map = leaflet.map(`map`, {
-      center: CITY,
-      zoom: ZOOM,
+      center: cityLocation,
+      zoom: cityZoom,
       zoomControl: false,
-      marker: true
+      marker: true,
     });
-    map.setView(CITY, ZOOM);
     leaflet
       .tileLayer(`https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png`, {
         attribution: `&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>`
@@ -26,15 +26,16 @@ export const useMap = (offers, activeCard) => {
   useEffect(() => {
     if (map) {
       markers.clearLayers();
-      offers.forEach(({coords, src}) => {
-        const iconUrl = activeCard && src === activeCard.src
+      map.setView(cityLocation, cityZoom);
+      offers.forEach(({location, id}) => {
+        const iconUrl = activeCard && id === activeCard.id
           ? `img/pin-active.svg`
           : `img/pin.svg`;
         const icon = leaflet.icon({
           iconUrl,
           iconSize: [30, 30]
         });
-        markers.addLayer(leaflet.marker(coords, {icon}));
+        markers.addLayer(leaflet.marker([location.latitude, location.longitude], {icon}));
       });
       markers.addTo(map);
     }

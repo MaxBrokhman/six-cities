@@ -1,13 +1,11 @@
 import {useContext, createContext} from 'react';
 
-import {offers} from '../mocks/offers';
-
 export const initialState = {
-  currentCity: offers.length
-    ? offers[0].city
-    : ``,
-  offersList: offers,
+  currentCity: ``,
+  offersList: [],
   sort: `popular`,
+  isFetching: false,
+  error: null,
 };
 
 const initialContext = {
@@ -28,6 +26,18 @@ export const reducer = (state = initialState, action) => {
     case `SET_SORT`:
       return Object.assign({}, state, {
         sort: action.payload,
+      });
+    case `SET_OFFERS`:
+      return Object.assign({}, state, {
+        offersList: action.payload,
+      });
+    case `SET_ERROR`:
+      return Object.assign({}, state, {
+        error: action.payload,
+      });
+    case `SET_FETCHING`:
+      return Object.assign({}, state, {
+        isFetching: action.payload,
       });
     default:
       return state;

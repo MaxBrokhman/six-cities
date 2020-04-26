@@ -3,45 +3,5 @@
 exports[`Renders CitiesList component correctly 1`] = `
 <ul
   className="locations__list tabs__list"
->
-  <li
-    className="locations__item"
-  >
-    <a
-      className="locations__item-link tabs__item"
-      href="#"
-      onClick={[Function]}
-    >
-      <span>
-        amsterdam
-      </span>
-    </a>
-  </li>
-  <li
-    className="locations__item"
-  >
-    <a
-      className="locations__item-link tabs__item"
-      href="#"
-      onClick={[Function]}
-    >
-      <span>
-        berlin
-      </span>
-    </a>
-  </li>
-  <li
-    className="locations__item"
-  >
-    <a
-      className="locations__item-link tabs__item"
-      href="#"
-      onClick={[Function]}
-    >
-      <span>
-        paris
-      </span>
-    </a>
-  </li>
-</ul>
+/>
 `;

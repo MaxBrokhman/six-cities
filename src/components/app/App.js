@@ -6,9 +6,11 @@ import {
   initialState,
   Context
 } from '../../reducer/reducer';
+import {useFetchedOffers} from './hooks';
 
 export const App = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
+  useFetchedOffers(dispatch);
   return (
     <Context.Provider value={{state, dispatch}}>
       <div className="page page--gray page--main">

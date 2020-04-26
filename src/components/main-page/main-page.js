@@ -37,7 +37,6 @@ export const MainPage = () => {
                   <h2 className="visually-hidden">Places</h2>
                   <b className="places__found">{filteredOffers.length} places to stay in <span>{state.currentCity}</span></b>
                   <SortingVariants />
-
                   <OffersList
                     offers={filteredOffers}
                     hoverHandler={hoverHandler}
@@ -48,7 +47,11 @@ export const MainPage = () => {
               : <EmptyPage />
           }
           <div className="cities__right-section">
-            <Map offers={filteredOffers} activeCard={activeCard} />
+            {
+              filteredOffers.length && (
+                <Map offers={filteredOffers} activeCard={activeCard} />
+              )
+            }
           </div>
         </div>
       </div>

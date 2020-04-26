@@ -3,8 +3,8 @@ import {setCity} from '../../reducer/actions';
 export const useCities = (offers, dispatch) => {
   const uniqueCities = [];
   for (let {city} of offers) {
-    if (uniqueCities.indexOf(city) === -1) {
-      uniqueCities.push(city);
+    if (uniqueCities.indexOf(city.name) === -1) {
+      uniqueCities.push(city.name);
     }
   }
 
