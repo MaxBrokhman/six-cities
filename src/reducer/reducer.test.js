@@ -1,4 +1,5 @@
 import {reducer, initialState} from './reducer';
+import {user} from '../mocks/user';
 
 describe(`Reducer works as expected`, () => {
   it(`Correctly sets city`, () => {
@@ -20,5 +21,13 @@ describe(`Reducer works as expected`, () => {
   it(`Sets isFetching status correctly`, () => {
     const newState = reducer(initialState, {type: `SET_FETCHING`, payload: true});
     expect(newState).toMatchObject(Object.assign({}, initialState, {isFetching: true}));
+  });
+  it(`Sets isAuthorizationRequired correctly`, () => {
+    const newState = reducer(initialState, {type: `SET_AUTHORIZATION`, payload: true});
+    expect(newState).toMatchObject(Object.assign({}, initialState, {isAuthorizationRequired: true}));
+  });
+  it(`Sets user correctly`, () => {
+    const newState = reducer(initialState, {type: `SET_USER`, payload: user});
+    expect(newState).toMatchObject(Object.assign({}, initialState, {user}));
   });
 });
