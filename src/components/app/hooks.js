@@ -4,8 +4,9 @@ import {
   setError,
   setOffers,
   setCity,
+  setIsAuthorizationRequired,
 } from '../../reducer/actions';
-import {sendRequest} from '../../api/api';
+import {api, sendRequest} from '../../api/api';
 
 export const useFetchedOffers = (dispatch) => {
   const onFailure = () => {
@@ -18,6 +19,11 @@ export const useFetchedOffers = (dispatch) => {
     setCity(data[0].city.name, innerDispatch);
   };
   useEffect(() => {
+    api.interceptors.response.use(null, (response) => {
+      if (response.status === 401) {
+        setIsAuthorizationRequired(true, dispatch);
+      }
+    });
     sendRequest({
       url: `/hotels`,
       onSuccess,

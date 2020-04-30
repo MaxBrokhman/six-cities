@@ -26,3 +26,8 @@ export const setUser = (user, dispatch) => dispatch({
   type: `SET_USER`,
   payload: user,
 });
+
+export const setFavorite = (id, dispatch) => dispatch({
+  type: `SET_FAVORITE`,
+  payload: id,
+});

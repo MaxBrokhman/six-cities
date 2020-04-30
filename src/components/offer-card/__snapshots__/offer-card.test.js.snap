@@ -40,7 +40,8 @@ exports[`Renders OfferCard component correctly 1`] = `
         </span>
       </div>
       <button
-        className="place-card__bookmark-button button"
+        className="place-card__bookmark-button button 
+          "
         type="button"
       >
         <svg
@@ -49,7 +50,7 @@ exports[`Renders OfferCard component correctly 1`] = `
           width="18"
         >
           <use
-            xlink="href=#icon-bookmark"
+            xlinkHref="#icon-bookmark"
           />
         </svg>
         <span

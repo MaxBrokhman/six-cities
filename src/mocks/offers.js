@@ -17,6 +17,9 @@ export const offers = [
       longitude: 4.85309666406198,
     },
     rating: 5,
+    // eslint-disable-next-line
+    is_favorite: false,
+    id: 1,
   },
   {
     src: `img/room.jpg`,
@@ -32,6 +35,9 @@ export const offers = [
       zoom: 6,
     },
     rating: 4,
+    // eslint-disable-next-line
+    is_favorite: false,
+    id: 2,
   },
   {
     src: `img/apartment-02.jpg`,
@@ -47,6 +53,9 @@ export const offers = [
       zoom: 6,
     },
     rating: 5,
+    // eslint-disable-next-line
+    is_favorite: false,
+    id: 3,
   },
   {
     src: `img/apartment-03.jpg`,
@@ -66,5 +75,8 @@ export const offers = [
       zoom: 6,
     },
     rating: 3,
+    // eslint-disable-next-line
+    is_favorite: false,
+    id: 4,
   }
 ];

@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 import {OffersList} from '../offers-list/offers-list';
 import {Map} from '../map/map';
@@ -33,7 +34,7 @@ export const MainPage = () => {
             <nav className="header__nav">
               <ul className="header__nav-list">
                 <li className="header__nav-item user">
-                  <a className="header__nav-link header__nav-link--profile" href="#">
+                  <Link to={state.user ? `/` : `/login`} className="header__nav-link header__nav-link--profile">
                     <div className="header__avatar-wrapper user__avatar-wrapper">
                     </div>
                     {
@@ -41,7 +42,7 @@ export const MainPage = () => {
                         ? <span className="header__user-name user__name">{state.user.email}</span>
                         : <span className="header__login">Sign in</span>
                     }
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </nav>

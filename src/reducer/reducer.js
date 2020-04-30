@@ -6,7 +6,7 @@ export const initialState = {
   sort: `popular`,
   isFetching: false,
   error: null,
-  isAuthorizationRequired: true,
+  isAuthorizationRequired: false,
   user: null,
 };
 
@@ -45,6 +45,17 @@ export const reducer = (state = initialState, action) => {
       return Object.assign({}, state, {isAuthorizationRequired: action.payload});
     case `SET_USER`:
       return Object.assign({}, state, {user: action.payload});
+    case `SET_FAVORITE`:
+      const favIdx = state.offersList.findIndex((offer) => offer.id === action.payload);
+      const offerToFav = state.offersList[favIdx];
+      // eslint-disable-next-line
+      const updatedOffer = Object.assign({}, offerToFav, {is_favorite: !offerToFav.is_favorite});
+      return Object.assign({}, state, {
+        offersList: state.offersList
+        .slice(0, favIdx)
+        .concat(updatedOffer)
+        .concat(state.offersList.slice(favIdx + 1)),
+      });
     default:
       return state;
   }

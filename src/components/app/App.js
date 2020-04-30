@@ -1,4 +1,5 @@
 import React, {useReducer} from 'react';
+import {Switch, Route, Redirect} from 'react-router-dom';
 
 import {MainPage} from '../main-page/main-page';
 import {SignIn} from '../sign-in/sign-in';
@@ -15,10 +16,16 @@ export const App = () => {
   return (
     <Context.Provider value={{state, dispatch}}>
       {
-        state.isAuthorizationRequired
-          ? <SignIn />
-          : <MainPage />
+        state.isAuthorizationRequired && <Redirect from='/*' to='/login' />
       }
+      <Switch>
+        <Route path='/login'>
+          <SignIn />
+        </Route>
+        <Route path='/'>
+          <MainPage />
+        </Route>
+      </Switch>
     </Context.Provider>
   );
 };

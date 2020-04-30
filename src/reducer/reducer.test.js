@@ -1,5 +1,6 @@
 import {reducer, initialState} from './reducer';
 import {user} from '../mocks/user';
+import {offers} from '../mocks/offers';
 
 describe(`Reducer works as expected`, () => {
   it(`Correctly sets city`, () => {
@@ -29,5 +30,12 @@ describe(`Reducer works as expected`, () => {
   it(`Sets user correctly`, () => {
     const newState = reducer(initialState, {type: `SET_USER`, payload: user});
     expect(newState).toMatchObject(Object.assign({}, initialState, {user}));
+  });
+  it(`Sets favorites correctly`, () => {
+    const action = {type: `SET_FAVORITE`, payload: 1};
+    const newState = reducer(Object.assign({}, initialState, {offersList: offers}), action);
+    expect(newState.offersList[0].is_favorite).toEqual(true);
+    const newState2 = reducer(Object.assign({}, newState), action);
+    expect(newState2.offersList[0].is_favorite).toEqual(false);
   });
 });
