@@ -49,7 +49,11 @@ export const MainPage = () => {
                   <div className="cities__right-section">
                     {
                       filteredOffers.length && (
-                        <Map offers={filteredOffers} activeCard={activeCard} />
+                        <Map
+                          offers={filteredOffers}
+                          activeCard={activeCard}
+                          className={`cities__map`}
+                        />
                       )
                     }
                   </div>

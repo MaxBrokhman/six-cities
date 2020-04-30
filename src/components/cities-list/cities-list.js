@@ -12,7 +12,10 @@ export const CitiesList = () => {
         cities.map((city) => (
           <li className="locations__item" key={city}>
             <a
-              className="locations__item-link tabs__item"
+              className={`locations__item-link tabs__item ${city === state.currentCity
+                ? `tabs__item--active`
+                : ``}
+              `}
               href="#"
               onClick={clickHandler(city)}
             >

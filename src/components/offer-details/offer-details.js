@@ -4,13 +4,18 @@ import {useOfferById, useSimilarOffers} from './hooks';
 import {useAppContext} from '../../reducer/reducer';
 import {Header} from '../header/header';
 import {NearPlacesList} from '../near-places-list/near-places-list';
+import {Map} from '../map/map';
 import {useFavorite} from '../../common-hooks/use-favorite';
 
 // eslint-disable-next-line
 export const OfferDetails = ({id}) => {
   const {state} = useAppContext();
   const {offer} = useOfferById(id, state.offersList);
-  const {similarOffers} = useSimilarOffers(offer.city.name, state.offersList);
+  const {similarOffers} = useSimilarOffers({
+    city: offer.city.name,
+    places: state.offersList,
+    id,
+  });
   const {addFavHandler} = useFavorite();
   return (
     <div className="page">
@@ -192,7 +197,11 @@ export const OfferDetails = ({id}) => {
               }
             </div>
           </div>
-          <section className="property__map map"></section>
+          <Map
+            activeCard={offer}
+            offers={similarOffers.concat(offer)}
+            className="property__map"
+          />
         </section>
         <div className="container">
           <NearPlacesList places={similarOffers} addFavHandler={addFavHandler} />

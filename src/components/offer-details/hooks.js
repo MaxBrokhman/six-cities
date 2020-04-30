@@ -1,9 +1,13 @@
 import {useMemo} from 'react';
 
-export const useSimilarOffers = (city, places) => {
+export const useSimilarOffers = ({
+  city,
+  places,
+  id,
+}) => {
   const similarOffers = useMemo(() => {
-    return places.filter((place) => place.city.name === city);
-  }, [city, places]);
+    return places.filter((place) => place.city.name === city && place.id !== id);
+  }, [city, places, id]);
   return {
     similarOffers,
   };

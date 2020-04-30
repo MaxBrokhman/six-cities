@@ -7,7 +7,7 @@ import {Map} from './map';
 it(`Renders Map component correctly`, () => {
   const tree = renderer
                 .create(
-                    <Map offers={offers} />
+                    <Map offers={offers} className="cities__map" />
                 )
                 .toJSON();
   expect(tree).toMatchSnapshot();

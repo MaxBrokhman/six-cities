@@ -22,6 +22,9 @@ export const useMap = (offers, activeCard) => {
         attribution: `&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>`
       })
       .addTo(map);
+    return () => {
+      map.remove();
+    };
   }, []);
   useEffect(() => {
     if (map) {
@@ -39,5 +42,8 @@ export const useMap = (offers, activeCard) => {
       });
       markers.addTo(map);
     }
-  }, [offers, activeCard]);
+  }, [
+    offers,
+    activeCard,
+  ]);
 };

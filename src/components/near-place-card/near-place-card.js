@@ -42,7 +42,7 @@ export const NearPlaceCard = ({offer, addFavHandler}) => {
         </div>
         <h2 className="place-card__name">
           {// eslint-disable-next-line
-          <a href="#">{offer.description}</a>}
+          <Link to={`/${offer.id}`}>{offer.description}</Link>}
         </h2>
         {// eslint-disable-next-line
         <p className="place-card__type">{offer.type}</p>}
