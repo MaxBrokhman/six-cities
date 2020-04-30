@@ -6,12 +6,14 @@ exports[`Renders OffersList component correctly 1`] = `
 >
   <article
     className="cities__place-card place-card"
+    onMouseLeave={[MockFunction]}
   >
     <div
       className="cities__image-wrapper place-card__image-wrapper"
     >
       <a
-        href="#"
+        href="/1"
+        onClick={[Function]}
       >
         <img
           alt="Place image"
@@ -102,12 +104,14 @@ exports[`Renders OffersList component correctly 1`] = `
   </article>
   <article
     className="cities__place-card place-card"
+    onMouseLeave={[MockFunction]}
   >
     <div
       className="cities__image-wrapper place-card__image-wrapper"
     >
       <a
-        href="#"
+        href="/2"
+        onClick={[Function]}
       >
         <img
           alt="Place image"
@@ -198,12 +202,14 @@ exports[`Renders OffersList component correctly 1`] = `
   </article>
   <article
     className="cities__place-card place-card"
+    onMouseLeave={[MockFunction]}
   >
     <div
       className="cities__image-wrapper place-card__image-wrapper"
     >
       <a
-        href="#"
+        href="/3"
+        onClick={[Function]}
       >
         <img
           alt="Place image"
@@ -294,12 +300,14 @@ exports[`Renders OffersList component correctly 1`] = `
   </article>
   <article
     className="cities__place-card place-card"
+    onMouseLeave={[MockFunction]}
   >
     <div
       className="cities__image-wrapper place-card__image-wrapper"
     >
       <a
-        href="#"
+        href="/4"
+        onClick={[Function]}
       >
         <img
           alt="Place image"

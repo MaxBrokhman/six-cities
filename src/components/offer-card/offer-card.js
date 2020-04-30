@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 export const OfferCard = ({
   // eslint-disable-next-line
@@ -23,16 +24,17 @@ export const OfferCard = ({
       )
     }
     <div className="cities__image-wrapper place-card__image-wrapper">
-      <a href="#">
-        <img
-          className="place-card__image"
-          // eslint-disable-next-line
-          src={offer.preview_image} 
-          width="260"
-          height="200"
-          alt="Place image"
-        />
-      </a>
+      {// eslint-disable-next-line
+      <Link to={`/${offer.id}`}>
+          <img
+            className="place-card__image"
+            // eslint-disable-next-line
+            src={offer.preview_image} 
+            width="260"
+            height="200"
+            alt="Place image"
+          />
+        </Link>}
     </div>
     <div className="place-card__info">
       <div className="place-card__price-wrapper">

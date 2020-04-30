@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {OfferCard} from '../offer-card/offer-card';
-import {useFavorite} from './hooks';
+import {useFavorite} from '../../common-hooks/use-favorite';
 
 export const OffersList = ({
   // eslint-disable-next-line

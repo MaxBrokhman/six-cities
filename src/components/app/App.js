@@ -9,6 +9,7 @@ import {
   Context
 } from '../../reducer/reducer';
 import {useFetchedOffers} from './hooks';
+import {OfferDetails} from '../offer-details/offer-details';
 
 export const App = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -22,6 +23,7 @@ export const App = () => {
         <Route path='/login'>
           <SignIn />
         </Route>
+        <Route path='/:id' render={({match}) => <OfferDetails id={match.params.id} />} />
         <Route path='/'>
           <MainPage />
         </Route>

@@ -1,5 +1,5 @@
-import {setFavorite} from "../../reducer/actions";
-import {useAppContext} from "../../reducer/reducer";
+import {setFavorite} from "../reducer/actions";
+import {useAppContext} from "../reducer/reducer";
 
 export const useFavorite = () => {
   const {dispatch} = useAppContext();
