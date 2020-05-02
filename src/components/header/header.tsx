@@ -10,14 +10,14 @@ export const Header = (): JSX.Element => {
       <div className="container">
         <div className="header__wrapper">
           <div className="header__left">
-            <a className="header__logo-link header__logo-link--active">
+            <Link className="header__logo-link header__logo-link--active" to='/'>
               <img className="header__logo" src="img/logo.svg" alt="6 cities logo" width="81" height="41" />
-            </a>
+            </Link>
           </div>
           <nav className="header__nav">
             <ul className="header__nav-list">
               <li className="header__nav-item user">
-                <Link to={state.user ? `/` : `/login`} className="header__nav-link header__nav-link--profile">
+                <Link to={state.user ? `/favorites` : `/login`} className="header__nav-link header__nav-link--profile">
                   <div className="header__avatar-wrapper user__avatar-wrapper">
                   </div>
                   {

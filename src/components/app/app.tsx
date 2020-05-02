@@ -10,6 +10,7 @@ import {
 } from '../../reducer/reducer';
 import {useFetchedOffers} from './hooks';
 import {OfferDetails} from '../offer-details/offer-details';
+import {Favorites} from '../favorites/favorites';
 
 export const App = (): JSX.Element => {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -22,6 +23,9 @@ export const App = (): JSX.Element => {
       <Switch>
         <Route path='/login'>
           <SignIn />
+        </Route>
+        <Route path='/favorites'>
+          <Favorites />
         </Route>
         <Route path='/:id' render={({match}): JSX.Element => <OfferDetails id={match.params.id} />} />
         <Route path='/'>

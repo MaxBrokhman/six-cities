@@ -3,6 +3,7 @@ import {
   ChangeEvent,
   SyntheticEvent,
 } from 'react';
+import {useHistory} from 'react-router-dom';
 
 import {sendRequest} from '../../api/api';
 import {
@@ -25,6 +26,7 @@ export const useAuthorization = (): TUseAuthorization => {
   const [email, setEmail] = useState(``);
   const [password, setPassword] = useState(``);
   const {dispatch} = useAppContext();
+  const history = useHistory();
   const emailInputHandler = (evt: ChangeEvent<HTMLInputElement>): void => {
     setEmail(evt.target.value);
   };
@@ -34,6 +36,7 @@ export const useAuthorization = (): TUseAuthorization => {
   const onSuccess = (response: TUser, innerDispatch: TDispatch): void => {
     setUser(response, innerDispatch);
     setIsAuthorizationRequired(false, innerDispatch);
+    history.push(`/`);
   };
   const onFailure = (): void => {
     setError({
