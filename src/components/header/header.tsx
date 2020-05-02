@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 
 import {useAppContext} from '../../reducer/reducer';
 
-export const Header = () => {
+export const Header = (): JSX.Element => {
   const {state} = useAppContext();
   return (
     <header className="header">

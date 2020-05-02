@@ -9,7 +9,7 @@ import {useAppContext} from '../../reducer/reducer';
 import {useFilteredOffers, useActiveCard} from './hooks';
 import {Header} from '../header/header';
 
-export const MainPage = () => {
+export const MainPage = (): JSX.Element => {
   const {state} = useAppContext();
   const {filteredOffers} = useFilteredOffers({
     offers: state.offersList,
@@ -38,7 +38,9 @@ export const MainPage = () => {
                 <div className="cities__places-container container">
                   <section className="cities__places places">
                     <h2 className="visually-hidden">Places</h2>
-                    <b className="places__found">{filteredOffers.length} places to stay in <span>{state.currentCity}</span></b>
+                    <b className="places__found">
+                      {filteredOffers.length} places to stay in <span>{state.currentCity}</span>
+                    </b>
                     <SortingVariants />
                     <OffersList
                       offers={filteredOffers}

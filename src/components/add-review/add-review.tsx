@@ -2,7 +2,7 @@ import React from 'react';
 
 import {useReviewPosting} from './hooks';
 
-export const AddReview = () => {
+export const AddReview = (): JSX.Element => {
   const {submitHandler, btnCaption} = useReviewPosting();
   return (
     <form className="reviews__form form" action="#" method="post" onSubmit={submitHandler}>
@@ -43,12 +43,12 @@ export const AddReview = () => {
           </svg>
         </label>
       </div>
-      <textarea className="reviews__textarea form__textarea" id="review" name="review" placeholder="Tell how was your stay, what you like and what can be improved" minLength="50"></textarea>
+      <textarea className="reviews__textarea form__textarea" id="review" name="review" placeholder="Tell how was your stay, what you like and what can be improved" minLength={50}></textarea>
       <div className="reviews__button-wrapper">
         <p className="reviews__help">
           To submit review please make sure to set <span className="reviews__star">rating</span> and describe your stay with at least <b className="reviews__text-amount">50 characters</b>.
         </p>
-        <button className="reviews__submit form__submit button" type="submit" disabled="">{btnCaption}</button>
+        <button className="reviews__submit form__submit button" type="submit" disabled>{btnCaption}</button>
       </div>
     </form>
   );

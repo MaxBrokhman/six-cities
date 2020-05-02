@@ -1,10 +1,12 @@
 import {useEffect} from 'react';
 import leaflet from 'leaflet';
 
+import {TOffer} from '../../reducer/types';
+
 let map;
 const markers = leaflet.layerGroup();
 
-export const useMap = (offers, activeCard) => {
+export const useMap = (offers: Array<TOffer>, activeCard: TOffer): void => {
   const cityLocation = [
     offers[0].city.location.latitude,
     offers[0].city.location.longitude,
@@ -22,7 +24,7 @@ export const useMap = (offers, activeCard) => {
         attribution: `&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>`
       })
       .addTo(map);
-    return () => {
+    return (): void => {
       map.remove();
     };
   }, []);

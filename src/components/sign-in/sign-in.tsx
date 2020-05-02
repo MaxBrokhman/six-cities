@@ -3,7 +3,7 @@ import React from 'react';
 import {useAuthorization} from './hooks';
 import {Header} from '../header/header';
 
-export const SignIn = () => {
+export const SignIn = (): JSX.Element => {
   const {
     email,
     password,
@@ -31,7 +31,7 @@ export const SignIn = () => {
                   type="email"
                   name="email"
                   placeholder="Email"
-                  required=""
+                  required
                   value={email}
                   onChange={emailInputHandler}
                 />
@@ -43,7 +43,7 @@ export const SignIn = () => {
                   type="password"
                   name="password"
                   placeholder="Password"
-                  required=""
+                  required
                   value={password}
                   onChange={passwordInutHandler}
                 />

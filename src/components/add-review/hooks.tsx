@@ -2,9 +2,15 @@ import {
   useCallback,
   useState,
   useEffect,
+  SyntheticEvent,
 } from 'react';
 
-export const useReviewPosting = () => {
+type TUseReviewPosting = {
+  submitHandler: (evt: SyntheticEvent) => void;
+  btnCaption: string;
+}
+
+export const useReviewPosting = (): TUseReviewPosting => {
   const [timer, setTimer] = useState(null);
   const [isLoaded, setLoaded] = useState(false);
   const submitHandler = useCallback((evt) => {
@@ -12,10 +18,10 @@ export const useReviewPosting = () => {
     evt.preventDefault();
     setTimer(setTimeout(() => {
       setLoaded(true);
-    }), 1000);
+    }, 1000));
   }, []);
   useEffect(() => {
-    return () => {
+    return (): void => {
       setLoaded(false);
       clearTimeout(timer);
     };

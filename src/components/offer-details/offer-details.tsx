@@ -8,8 +8,7 @@ import {Map} from '../map/map';
 import {useFavorite} from '../../common-hooks/use-favorite';
 import {AddReview} from '../add-review/add-review';
 
-// eslint-disable-next-line
-export const OfferDetails = ({id}) => {
+export const OfferDetails = ({id}: {id: number}): JSX.Element => {
   const {state} = useAppContext();
   const {offer} = useOfferById(id, state.offersList);
   const {similarOffers} = useSimilarOffers({
@@ -53,7 +52,6 @@ export const OfferDetails = ({id}) => {
                     : ``}
                   `}
                   type="button"
-                  // eslint-disable-next-line
                   onClick={addFavHandler(offer.id)}
                 >
                   <svg className="property__bookmark-icon" width="31" height="33">

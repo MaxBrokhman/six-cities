@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const EmptyPage = () => (
+export const EmptyPage = (): JSX.Element => (
   <main className="page__main page__main--index page__main--index-empty">
     <h1 className="visually-hidden">Cities</h1>
     <div className="cities">

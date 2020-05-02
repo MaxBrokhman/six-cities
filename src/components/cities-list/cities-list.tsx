@@ -3,7 +3,7 @@ import React from 'react';
 import {useAppContext} from '../../reducer/reducer';
 import {useCities} from './hooks';
 
-export const CitiesList = () => {
+export const CitiesList = (): JSX.Element => {
   const {state, dispatch} = useAppContext();
   const {cities, clickHandler} = useCities(state.offersList, dispatch);
   return (

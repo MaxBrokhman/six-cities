@@ -1,4 +1,8 @@
-import {useState} from 'react';
+import {
+  useState,
+  ChangeEvent,
+  SyntheticEvent,
+} from 'react';
 
 import {sendRequest} from '../../api/api';
 import {
@@ -7,27 +11,36 @@ import {
   setIsAuthorizationRequired,
 } from '../../reducer/actions';
 import {useAppContext} from '../../reducer/reducer';
+import {TUser, TDispatch} from '../../reducer/types';
 
-export const useAuthorization = () => {
+type TUseAuthorization = {
+  email: string;
+  password: string;
+  emailInputHandler: (evt: ChangeEvent<HTMLInputElement>) => void;
+  passwordInutHandler: (evt: ChangeEvent<HTMLInputElement>) => void;
+  submitHandler: (evt: SyntheticEvent) => void;
+}
+
+export const useAuthorization = (): TUseAuthorization => {
   const [email, setEmail] = useState(``);
   const [password, setPassword] = useState(``);
   const {dispatch} = useAppContext();
-  const emailInputHandler = (evt) => {
+  const emailInputHandler = (evt: ChangeEvent<HTMLInputElement>): void => {
     setEmail(evt.target.value);
   };
-  const passwordInutHandler = (evt) => {
+  const passwordInutHandler = (evt: ChangeEvent<HTMLInputElement>): void => {
     setPassword(evt.target.value);
   };
-  const onSuccess = (response, innerDispatch) => {
+  const onSuccess = (response: TUser, innerDispatch: TDispatch): void => {
     setUser(response, innerDispatch);
     setIsAuthorizationRequired(false, innerDispatch);
   };
-  const onFailure = () => {
+  const onFailure = (): void => {
     setError({
       message: `Unable to login. Please check your email and paswword and try again`,
     }, dispatch);
   };
-  const submitHandler = (evt) => {
+  const submitHandler = (evt: SyntheticEvent): void => {
     evt.preventDefault();
     if (email && password) {
       sendRequest({

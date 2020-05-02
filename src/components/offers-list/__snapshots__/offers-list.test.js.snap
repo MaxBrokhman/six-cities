@@ -19,6 +19,7 @@ exports[`Renders OffersList component correctly 1`] = `
           alt="Place image"
           className="place-card__image"
           height="200"
+          src=""
           width="260"
         />
       </a>
@@ -117,6 +118,7 @@ exports[`Renders OffersList component correctly 1`] = `
           alt="Place image"
           className="place-card__image"
           height="200"
+          src=""
           width="260"
         />
       </a>
@@ -215,6 +217,7 @@ exports[`Renders OffersList component correctly 1`] = `
           alt="Place image"
           className="place-card__image"
           height="200"
+          src=""
           width="260"
         />
       </a>
@@ -313,6 +316,7 @@ exports[`Renders OffersList component correctly 1`] = `
           alt="Place image"
           className="place-card__image"
           height="200"
+          src=""
           width="260"
         />
       </a>

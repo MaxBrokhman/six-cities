@@ -1,6 +1,8 @@
 import {useContext, createContext} from 'react';
 
-export const initialState = {
+import {TState, TContext, TAction} from './types';
+
+export const initialState: TState = {
   currentCity: ``,
   offersList: [],
   sort: `popular`,
@@ -10,16 +12,16 @@ export const initialState = {
   user: null,
 };
 
-const initialContext = {
+const initialContext: TContext = {
   state: initialState,
   dispatch: null,
 };
 
 export const Context = createContext(initialContext);
 
-export const useAppContext = () => useContext(Context);
+export const useAppContext = (): TContext => useContext(Context);
 
-export const reducer = (state = initialState, action) => {
+export const reducer = (state = initialState, action: TAction): TState => {
   switch (action.type) {
     case `SET_CITY`:
       return Object.assign({}, state, {
@@ -48,8 +50,10 @@ export const reducer = (state = initialState, action) => {
     case `SET_FAVORITE`:
       const favIdx = state.offersList.findIndex((offer) => offer.id === action.payload);
       const offerToFav = state.offersList[favIdx];
-      // eslint-disable-next-line
-      const updatedOffer = Object.assign({}, offerToFav, {is_favorite: !offerToFav.is_favorite});
+      const updatedOffer = Object.assign({}, offerToFav, {
+        // eslint-disable-next-line
+        is_favorite: !offerToFav.is_favorite,
+      });
       return Object.assign({}, state, {
         offersList: state.offersList
         .slice(0, favIdx)

@@ -90,7 +90,7 @@ exports[`Renders SignIn component correctly 1`] = `
               name="email"
               onChange={[Function]}
               placeholder="Email"
-              required=""
+              required={true}
               type="email"
               value=""
             />
@@ -108,7 +108,7 @@ exports[`Renders SignIn component correctly 1`] = `
               name="password"
               onChange={[Function]}
               placeholder="Password"
-              required=""
+              required={true}
               type="password"
               value=""
             />

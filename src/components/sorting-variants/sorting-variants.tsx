@@ -4,7 +4,7 @@ import {useAppContext} from '../../reducer/reducer';
 import {useSortOptions} from './hooks';
 import {sortOptions} from '../../config';
 
-export const SortingVariants = () => {
+export const SortingVariants = (): JSX.Element => {
   const {state, dispatch} = useAppContext();
   const {
     className,
@@ -14,10 +14,10 @@ export const SortingVariants = () => {
   return (
     <form className="places__sorting" action="#" method="get">
       <span className="places__sorting-caption">Sort by</span>
-      <span className="places__sorting-type" tabIndex="0" onClick={dropdownClickHandler}>
+      <span className="places__sorting-type" tabIndex={0} onClick={dropdownClickHandler}>
         {state.sort}
         <svg className="places__sorting-arrow" width="7" height="4">
-          <use xlink="href=#icon-arrow-select"></use>
+          <use xlinkHref="#icon-arrow-select"></use>
         </svg>
       </span>
       <ul className={`places__options places__options--custom places__options--${className}`}>
@@ -29,7 +29,7 @@ export const SortingVariants = () => {
             return (
               <li
                 className={`places__option ${optionClass}`}
-                tabIndex="0"
+                tabIndex={0}
                 key={option}
                 onClick={sortOptionClickHandler(option)}
               >

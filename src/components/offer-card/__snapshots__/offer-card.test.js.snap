@@ -16,6 +16,7 @@ exports[`Renders OfferCard component correctly 1`] = `
         alt="Place image"
         className="place-card__image"
         height="200"
+        src=""
         width="260"
       />
     </a>

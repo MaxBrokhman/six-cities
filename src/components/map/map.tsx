@@ -1,15 +1,19 @@
 import React from 'react';
 
 import {useMap} from './hooks';
+import {TOffer} from '../../reducer/types';
+
+type TMapProps = {
+  offers: Array<TOffer>;
+  activeCard: TOffer;
+  className: string;
+}
 
 export const Map = ({
-  // eslint-disable-next-line
-  offers, 
-  // eslint-disable-next-line
-  activeCard, 
-  // eslint-disable-next-line
+  offers,
+  activeCard,
   className,
-}) => {
+}: TMapProps): JSX.Element => {
   useMap(offers, activeCard);
   return (
     <section className={`${className} map`} id="map"></section>

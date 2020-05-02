@@ -7,14 +7,15 @@ import {
   setIsAuthorizationRequired,
 } from '../../reducer/actions';
 import {api, sendRequest} from '../../api/api';
+import {TDispatch, TOffer} from '../../reducer/types';
 
-export const useFetchedOffers = (dispatch) => {
-  const onFailure = () => {
+export const useFetchedOffers = (dispatch: TDispatch): void => {
+  const onFailure = (): void => {
     setError({
       message: `Offers are not available right now. Please, try again later`,
     }, dispatch);
   };
-  const onSuccess = (data, innerDispatch) => {
+  const onSuccess = (data: Array<TOffer>, innerDispatch: TDispatch): void => {
     setOffers(data, innerDispatch);
     setCity(data[0].city.name, innerDispatch);
   };

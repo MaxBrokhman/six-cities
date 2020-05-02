@@ -1,6 +1,20 @@
 import axios from 'axios';
 
 import {setFetching, setError} from '../reducer/actions';
+import {
+  TOffer,
+  TDispatch,
+  TUser,
+} from '../reducer/types';
+
+type TSendRequestProps = {
+  url: string;
+  onSuccess: (data: Array<TOffer> | TUser, dispatch: TDispatch) => void;
+  onFailure: () => void;
+  method: string;
+  data?: {};
+  dispatch: TDispatch;
+}
 
 export const api = axios.create({
   baseURL: `https://htmlacademy-react-2.appspot.com/six-cities`,
@@ -15,7 +29,7 @@ export const sendRequest = ({
   dispatch,
   method,
   data,
-}) => {
+}: TSendRequestProps): Promise<void> => {
   setFetching(true, dispatch);
   return api[method](url, data)
     .then((response) => {
